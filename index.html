@@ -6,7 +6,6 @@
 
 <title>Easyshader - Roblox Graphics Enhancer</title>
 
-<!-- LOGGA I WEBBLÄSAREN (FAVICON) -->
 <link rel="icon" type="image/png" href="https://cdn.nest.rip/uploads/796fd496-001d-4761-80b0-ec4ce764b867.png">
 
 <meta name="description" content="Easyshader enhances Roblox graphics with realistic lighting, shadows and visuals. No gameplay changes.">
@@ -108,10 +107,16 @@ header {
 
 .section h2 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
 }
 
+.section p.subtitle {
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* FEATURES */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -125,6 +130,7 @@ header {
     font-weight: bold;
 }
 
+/* FLOAT BUTTON */
 .floating {
     position: fixed;
     bottom: 20px;
@@ -137,6 +143,7 @@ header {
     font-weight: bold;
 }
 
+/* FOOTER */
 footer {
     padding: 40px;
     text-align: center;
@@ -192,6 +199,32 @@ footer {
     background: #fff;
     transform: translateX(-50%);
 }
+
+/* VIDEO */
+.video-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.video-container {
+    background: white;
+    border: 2px solid #111;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.video-frame {
+    width: 100%;
+    height: 220px;
+    border: none;
+}
+
+.video-text {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
 </style>
 </head>
 
@@ -205,6 +238,7 @@ footer {
 
     <div class="nav">
         <a href="#compare">Comparisons</a>
+        <a href="#videos">Videos</a>
         <a href="#features">Features</a>
         <a href="#download">Download</a>
     </div>
@@ -213,7 +247,7 @@ footer {
 <section class="hero" id="download">
     <h1>Download Easyshader</h1>
     <p>Enhance Roblox visuals instantly — no gameplay modifications.</p>
-	<p>Current Version: 2</p>
+    <p>Current Version: 2</p>
     <button class="btn" onclick="download()">Download</button>
 </section>
 
@@ -261,17 +295,42 @@ footer {
     </div>
 </section>
 
+<section class="section" id="videos">
+    <h2>Videos</h2>
+    <p class="subtitle">See All Our Videos.</p>
+
+    <div class="video-wrapper">
+
+        <div class="video-container">
+            <iframe class="video-frame"
+                src="https://www.youtube.com/embed/W-tdi3dfAzg"
+                allowfullscreen>
+            </iframe>
+            <div class="video-text">Tutorial</div>
+        </div>
+
+        <div class="video-container">
+            <iframe class="video-frame"
+                src="https://www.youtube.com/embed/RzUJ_wrFjps"
+                allowfullscreen>
+            </iframe>
+            <div class="video-text">Shader Showcase</div>
+        </div>
+
+    </div>
+</section>
+
 <section class="section" id="features">
     <h2>Features</h2>
 
     <div class="features">
-	<div class="feature">Works with Windows 10/11</div>
+        <div class="feature">Works with Windows 10/11</div>
         <div class="feature">High Quality Lighting</div>
         <div class="feature">Low Performance Impact</div>
         <div class="feature">Custom Profiles</div>
         <div class="feature">Easy Install</div>
-		<div class="feature">No injection</div>
-		<div class="feature">Working in 2026</div>
+        <div class="feature">No injection</div>
+        <div class="feature">Working in 2026</div>
     </div>
 </section>
 
