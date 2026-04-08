@@ -40,7 +40,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000; /* FIX */
+    z-index: 1000;
 }
 
 .logo-wrap {
@@ -196,7 +196,7 @@ footer {
     user-select: none;
     touch-action: none;
     cursor: ew-resize;
-    z-index: 1; /* FIX */
+    z-index: 1;
 }
 
 .before,
@@ -282,8 +282,43 @@ footer {
     <h2>Comparisons</h2>
 
     <div class="before-after-wrapper">
-        <!-- SAME CONTENT -->
-        <!-- (kortad här men exakt samma som din originalkod) -->
+
+        <div class="before-after-container">
+            <div class="before-after">
+                <div class="before">
+                    <img src="https://cdn.nest.rip/uploads/112a7b81-3f02-4846-90ca-2575e61f3d9b.jpg">
+                </div>
+                <div class="after">
+                    <img src="https://cdn.nest.rip/uploads/7530b122-927d-4dd7-90de-151013b11792.png">
+                </div>
+                <div class="slider-line"></div>
+            </div>
+        </div>
+
+        <div class="before-after-container">
+            <div class="before-after">
+                <div class="before">
+                    <img src="https://cdn.nest.rip/uploads/f0966c8e-001d-49e5-b106-197353c2a6c6.jpg">
+                </div>
+                <div class="after">
+                    <img src="https://cdn.nest.rip/uploads/23523faf-de68-4696-9333-39fa8a1ab12a.png">
+                </div>
+                <div class="slider-line"></div>
+            </div>
+        </div>
+
+        <div class="before-after-container">
+            <div class="before-after">
+                <div class="before">
+                    <img src="https://cdn.nest.rip/uploads/a355783b-d9f9-44e0-9ea4-fd8164b9e002.png">
+                </div>
+                <div class="after">
+                    <img src="https://cdn.nest.rip/uploads/c6803463-c1a0-424a-8c50-66acbeaf32b4.png">
+                </div>
+                <div class="slider-line"></div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -292,7 +327,15 @@ footer {
     <p class="subtitle">See All Our Videos.</p>
 
     <div class="video-wrapper">
-        <!-- samma videos -->
+        <div class="video-container">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/W-tdi3dfAzg" allowfullscreen></iframe>
+            <div class="video-text">Tutorial</div>
+        </div>
+
+        <div class="video-container">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/RzUJ_wrFjps" allowfullscreen></iframe>
+            <div class="video-text">Shader Showcase</div>
+        </div>
     </div>
 </section>
 
@@ -310,10 +353,9 @@ footer {
     </div>
 </section>
 
-<!-- NEW SECTION -->
 <section class="section" id="old">
-    <h2>Old Versions [Comming soon]</h2>
-    <p class="subtitle">Download previous versions of Easyshader.</p>
+    <h2>Old Versions</h2>
+    <p class="subtitle">Download previous versions.</p>
 
     <div class="old-versions">
         <div class="version">
@@ -321,6 +363,10 @@ footer {
             <button onclick="oldDownload(1)">Download</button>
         </div>
 
+        <div class="version">
+            <span>Version Beta</span>
+            <button onclick="oldDownload('beta')">Download</button>
+        </div>
     </div>
 </section>
 
@@ -337,13 +383,12 @@ function download() {
 
 function oldDownload(v) {
     if (v === 1) {
-        window.location.href = "https://mega.nz/file/AnBmXRzI#3c3Eiv17CgOi0c8NW-x-guy2sUh0lhwuwJnJNDFlDoA";
+        window.location.href = "http://adfoc.us/example_v1";
     } else {
         window.location.href = "http://adfoc.us/example_beta";
     }
 }
 
-/* slider */
 let active = null;
 
 document.querySelectorAll(".before-after").forEach(el => {
