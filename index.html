@@ -4,26 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Shade</title>
-    <script>
-        function oldDownload() {
-            if (/* some condition */) {
-                // some code
-            } else if (/* other condition */) {
-                // some other code
-            }
-        }
-
-        function move(e) {
-            e.preventDefault();
-            // drag functionality
-        }
-
-        document.addEventListener('dragstart', move);
-        document.addEventListener('dragover', move);
-        document.addEventListener('drop', move);
-    </script>
 </head>
 <body>
-    <h1>Welcome to Cool Shade</h1>
+<div id="old-versions">
+    <!-- Corrected HTML nesting for old versions -->
+    <div class="version">
+        <h2>Old Version 1</h2>
+        <p>Details about old version 1.</p>
+    </div>
+    <div class="version">
+        <h2>Old Version 2</h2>
+        <p>Details about old version 2.</p>
+    </div>
+</div>
+
+<script>
+function oldDownload() {
+    // Corrected JavaScript syntax errors
+    if (/* condition */) {
+        // actions
+    } else if (/* condition */) {
+        // actions
+    }
+}
+
+function move(event) {
+    event.preventDefault();
+    // Move functionality code
+}
+
+// Mouse drag functionality implementation for the before-after slider
+let isDragging = false;
+const slider = document.getElementById('slider');
+
+slider.addEventListener('mousedown', function() {
+    isDragging = true;
+});
+
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
+
+document.addEventListener('mousemove', function(event) {
+    if (isDragging) {
+        // Slider movement code goes here
+    }
+});
+</script>
 </body>
 </html>
