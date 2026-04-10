@@ -224,6 +224,7 @@ footer {
     height: 100%;
     background: #fff;
     transform: translateX(-50%);
+    z-index: 10;
 }
 
 /* VIDEO */
@@ -360,20 +361,18 @@ footer {
      <div class="old-versions">
         <div class="version">
             <span>First Beta</span>
-            <button onclick="oldDownload(beta)">Download</button>
+            <button onclick="oldDownload('beta')">Download</button>
         </div>
 
-    <div class="old-versions">
         <div class="version">
             <span>Version 1</span>
             <button onclick="oldDownload(1)">Download</button>
         </div>
-         <div class="old-versions">
+
         <div class="version">
             <span>Version 2</span>
             <button onclick="oldDownload(2)">Download</button>
         </div>
-
     </div>
 </section>
 
@@ -384,6 +383,19 @@ footer {
 <button class="floating" onclick="download()">DOWNLOAD</button>
 
 <script>
+// Check for downtime on page load
+window.addEventListener('load', function() {
+    checkDowntime();
+});
+
+function checkDowntime() {
+    const downtime = true; // Set to true to trigger downtime, false for normal operation
+    
+    if (downtime) {
+        window.location.href = 'Down.html';
+    }
+}
+
 function download() {
     window.location.href = "http://adfoc.us/866895113109289";
 }
@@ -391,13 +403,9 @@ function download() {
 function oldDownload(v) {
     if (v === 1) {
         window.location.href = "https://mega.nz/file/AnBmXRzI#3c3Eiv17CgOi0c8NW-x-guy2sUh0lhwuwJnJNDFlDoA";
-    } else {
-        window.location.href = "http://adfoc.us/example_beta";
-    }
-    } elseif (v === 2) {
+    } else if (v === 2) {
         window.location.href = "https://mega.nz/file/Q3o3UDiR#ao-U2DBUCutVhvGblBpqrYBERfuk7xdb9D3-aShLDaI";
-    }
-     } elseif (v === beta) {
+    } else if (v === 'beta') {
         window.location.href = "https://mega.nz/file/wyxwCBaa#nNN4JcBVMa_CM7OhumFxHBIJGCiLjnxK4uFAHD378es";
     }
 }
@@ -405,15 +413,21 @@ function oldDownload(v) {
 let active = null;
 
 document.querySelectorAll(".before-after").forEach(el => {
-    el.addEventListener("mousedown", () => active = el);
-    el.addEventListener("touchstart", () => active = el);
+    el.addEventListener("mousedown", (e) => {
+        active = el;
+        e.preventDefault();
+    });
+    el.addEventListener("touchstart", (e) => {
+        active = el;
+        e.preventDefault();
+    });
 });
 
 document.addEventListener("mouseup", () => active = null);
 document.addEventListener("touchend", () => active = null);
 
 document.addEventListener("mousemove", move);
-document.addEventListener("touchmove", move);
+document.addEventListener("touchmove", move, { passive: false });
 
 function move(e) {
     if (!active) return;
